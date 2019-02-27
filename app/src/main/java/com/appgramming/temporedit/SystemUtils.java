@@ -5,6 +5,7 @@ import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.view.KeyEvent;
 
 class SystemUtils {
 
@@ -60,5 +61,22 @@ class SystemUtils {
         return null;
     }
 
+//                case R.id.action_undo:
+//            mEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.META_CTRL_ON | KeyEvent.META_CTRL_LEFT_ON));
+//                mEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z));
+//                mEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_Z));
+//                mEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.META_CTRL_ON | KeyEvent.META_CTRL_LEFT_ON));
+//
+////                mEditText.dispatchKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN,
+////                        KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_LEFT_ON));
+////                mEditText.dispatchKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP,
+////                        KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_LEFT_ON));
+////                mEditText.dispatchKeyEvent(keyEvent(KeyEvent.KEYCODE_V, KeyEvent.META_CTRL_ON | KeyEvent.META_CTRL_LEFT_ON));
+////                mEditText.dispatchKeyEvent(keyEvent(KeyEvent.KEYCODE_Z, 0));
+//                return true;
 
+//    public static KeyEvent keyEvent(int keycode, int metaState) {
+//        final long currentTime = System.currentTimeMillis();
+//        return new KeyEvent(currentTime, currentTime, KeyEvent.ACTION_DOWN, keycode, 0, metaState);
+//    }
 }

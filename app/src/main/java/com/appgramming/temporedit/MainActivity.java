@@ -20,8 +20,8 @@ public class MainActivity extends Activity {
 
         mEditText = findViewById(R.id.edit_text);
 
-        setActionBar((Toolbar) findViewById(R.id.toolbar));
-        getActionBar().setDisplayShowTitleEnabled(false);
+//        setActionBar((Toolbar) findViewById(R.id.toolbar));
+//        getActionBar().setDisplayShowTitleEnabled(false);
     }
 
     /**
@@ -51,26 +51,10 @@ public class MainActivity extends Activity {
                 String clipText = SystemUtils.pasteTextFromClipboard(this);
                 if (clipText != null) mEditText.setText(clipText);
                 return true;
-
-            case R.id.action_undo:
-//                mEditText.dispatchKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_DOWN,
-//                        KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_LEFT_ON));
-//                mEditText.dispatchKeyEvent(new KeyEvent(0, 0, KeyEvent.ACTION_UP,
-//                        KeyEvent.KEYCODE_Z, 0, KeyEvent.META_CTRL_LEFT_ON));
-//                mEditText.dispatchKeyEvent(keyEvent(KeyEvent.KEYCODE_V, KeyEvent.META_CTRL_ON | KeyEvent.META_CTRL_LEFT_ON));
-                mEditText.dispatchKeyEvent(keyEvent(KeyEvent.KEYCODE_Z, 0));
-                return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
-    }
-
-    public static KeyEvent keyEvent(int keycode, int metaState) {
-        final long currentTime = System.currentTimeMillis();
-        return new KeyEvent(currentTime, currentTime, KeyEvent.ACTION_DOWN, keycode, 0, metaState);
     }
 }
