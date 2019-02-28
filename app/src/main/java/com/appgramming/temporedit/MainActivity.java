@@ -20,8 +20,8 @@ public class MainActivity extends Activity {
 
         mEditText = findViewById(R.id.edit_text);
 
-//        setActionBar((Toolbar) findViewById(R.id.toolbar));
-//        getActionBar().setDisplayShowTitleEnabled(false);
+        setActionBar((Toolbar) findViewById(R.id.toolbar));
+        getActionBar().setDisplayShowTitleEnabled(false);
     }
 
     /**
