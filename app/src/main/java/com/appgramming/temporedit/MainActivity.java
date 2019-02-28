@@ -1,6 +1,7 @@
 package com.appgramming.temporedit;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,8 +21,10 @@ public class MainActivity extends Activity {
 
         mEditText = findViewById(R.id.edit_text);
 
-        setActionBar((Toolbar) findViewById(R.id.toolbar));
-        getActionBar().setDisplayShowTitleEnabled(false);
+//        mEditText.setTypeface(Typeface.MONOSPACE);
+
+//        setActionBar((Toolbar) findViewById(R.id.toolbar));
+//        getActionBar().setDisplayShowTitleEnabled(false);
     }
 
     /**
@@ -46,6 +49,9 @@ public class MainActivity extends Activity {
                 return true;
             case R.id.action_share:
                 SystemUtils.shareText(this, String.valueOf(mEditText.getText()), getString(R.string.share_title));
+                return true;
+            case R.id.action_clear:
+                mEditText.getText().clear();
                 return true;
             case R.id.action_paste:
                 String clipText = SystemUtils.pasteTextFromClipboard(this);
