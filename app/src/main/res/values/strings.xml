@@ -13,9 +13,22 @@
 
     <string name="share_title">Share text</string>
     <string name="activity_settings_title">Settings</string>
-    <string name="pref_typeface_title">Typeface</string>
-    <string name="pref_typeface_summary">Typeface summary</string>
-    <string name="pref_typeface_dialog_title">Typeface</string>
+
+
+    <string name="pref_category_font_title">Font</string>
+
     <string name="pref_typeface_key">pref_typeface</string>
+    <string name="pref_typeface_title">Typeface</string>
+    <string name="pref_typeface_summary">%s</string>
     <string name="pref_typeface_default">DEFAULT</string>
+
+    <string name="pref_font_style_key">pref_font_style_key</string>
+    <string name="pref_font_style_title">Font style</string>
+    <string name="pref_font_style_summary">%s</string>
+    <string name="pref_font_style_default">NORMAL</string>
+
+    <string name="pref_font_size_key">pref_font_size_key</string>
+    <string name="pref_font_size_title">Font size</string>
+    <string name="pref_font_size_summary">%s sp</string>
+    <string name="pref_font_size_default">18</string>
 </resources>

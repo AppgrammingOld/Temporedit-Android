@@ -3,16 +3,14 @@ package com.appgramming.temporedit;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-
-import java.io.Console;
 
 public class MainActivity extends Activity {
 
@@ -86,19 +84,18 @@ public class MainActivity extends Activity {
 
     private void loadPreferences() {
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Apply font typeface and style settings
         final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_default));
+        final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_default));
+        mEditText.setTypeface(SettingsHelper.parseFontTypeface(typefaceName), SettingsHelper.parseFontStyle(styleName));
 
-//        mEditText.setTypeface(Typeface.DEFAULT);
-        try {
-            Typeface typeface = (Typeface) Typeface.class.getField(typefaceName).get(null);
-            mEditText.setTypeface(typeface);
 
-//            Log.e("typeface", Typeface.class.getField(typefaceName).get(null).toString());
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        Log.e("textsize", String.valueOf(mEditText.getTextSize() / getResources().getDisplayMetrics().scaledDensity));
+        final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_default));
+        mEditText.setTextSize(Integer.parseInt(fontSizeString));
+//        mEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, Integer.parseInt(fontSizeString));
+        Log.e("textsize", String.valueOf(mEditText.getTextSize() / getResources().getDisplayMetrics().scaledDensity));
     }
 
 }
