@@ -22,4 +22,16 @@
     <style name="AppTheme.ActionBar.Theme" parent="android:ThemeOverlay.Material.ActionBar">
         <item name="android:iconTint">?android:attr/textColorPrimary</item>
     </style>
+
+    <!-- *********************************************** -->
+    <!-- Settings Activity                               -->
+    <!-- *********************************************** -->
+
+    <!-- Settings theme -->
+    <style name="AppTheme.SettingsTheme" parent="android:Theme.Material.Settings">
+        <!--<item name="android:statusBarColor">@color/color_accent</item>-->
+        <!--<item name="android:colorAccent">@color/color_accent</item>-->
+        <!--<item name="android:actionBarStyle">@style/SettingsTheme.ActionBarStyle</item>-->
+    </style>
+
 </resources>

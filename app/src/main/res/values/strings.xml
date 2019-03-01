@@ -12,4 +12,10 @@
     <!--<string name="action_undo">Undo</string>-->
 
     <string name="share_title">Share text</string>
+    <string name="activity_settings_title">Settings</string>
+    <string name="pref_typeface_title">Typeface</string>
+    <string name="pref_typeface_summary">Typeface summary</string>
+    <string name="pref_typeface_dialog_title">Typeface</string>
+    <string name="pref_typeface_key">pref_typeface</string>
+    <string name="pref_typeface_default">DEFAULT</string>
 </resources>

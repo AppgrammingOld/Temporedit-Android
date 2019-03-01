@@ -1,14 +1,18 @@
 package com.appgramming.temporedit;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toolbar;
+
+import java.io.Console;
 
 public class MainActivity extends Activity {
 
@@ -25,6 +29,18 @@ public class MainActivity extends Activity {
 
 //        setActionBar((Toolbar) findViewById(R.id.toolbar));
 //        getActionBar().setDisplayShowTitleEnabled(false);
+
+        // Set the default preferences, and load first preferences
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+    }
+
+    /**
+     * Loads preferences when the activity is resumed.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadPreferences();
     }
 
     /**
@@ -57,10 +73,32 @@ public class MainActivity extends Activity {
                 String clipText = SystemUtils.pasteTextFromClipboard(this);
                 if (clipText != null) mEditText.setText(clipText);
                 return true;
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    private void loadPreferences() {
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_default));
+
+//        mEditText.setTypeface(Typeface.DEFAULT);
+        try {
+            Typeface typeface = (Typeface) Typeface.class.getField(typefaceName).get(null);
+            mEditText.setTypeface(typeface);
+
+//            Log.e("typeface", Typeface.class.getField(typefaceName).get(null).toString());
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="@string/pref_typeface_key"
+        android:defaultValue="@string/pref_typeface_default"
+        android:title="@string/pref_typeface_title"
+        android:summary="@string/pref_typeface_summary"
+        android:entries="@array/pref_typeface_entries"
+        android:entryValues="@array/pref_typeface_values"
+        android:dialogTitle="@string/pref_typeface_dialog_title" />
+
+    <!--<SwitchPreference-->
+        <!--android:defaultValue="@bool/pref_show_date_default"-->
+        <!--android:key="@string/pref_show_date_key"-->
+        <!--android:summary="@string/pref_show_date_summary"-->
+        <!--android:title="@string/pref_show_date_title"/>-->
+
+    <!--<SwitchPreference-->
+        <!--android:defaultValue="@bool/pref_show_time_default"-->
+        <!--android:key="@string/pref_show_time_key"-->
+        <!--android:summary="@string/pref_show_time_summary"-->
+        <!--android:title="@string/pref_show_time_title"/>-->
+
+    <!--<SwitchPreference-->
+        <!--android:defaultValue="@bool/pref_show_unix_time_default"-->
+        <!--android:key="@string/pref_show_unix_time_key"-->
+        <!--android:summary="@string/pref_show_unix_time_summary"-->
+        <!--android:title="@string/pref_show_unix_time_title"/>-->
+
+    <!--<SwitchPreference-->
+        <!--android:defaultValue="@bool/pref_show_color_default"-->
+        <!--android:key="@string/pref_show_color_key"-->
+        <!--android:summary="@string/pref_show_color_summary"-->
+        <!--android:title="@string/pref_show_color_title"/>-->
+
+</PreferenceScreen>
