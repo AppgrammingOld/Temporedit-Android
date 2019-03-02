@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Layout;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -16,11 +17,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
 
     private EditText mEditText;
+    private LinearLayout mRootLayout;
 
     private int mSystemUiVisibility;
 
@@ -29,6 +32,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mRootLayout = findViewById(R.id.root_layout);
         mEditText = findViewById(R.id.edit_text);
 
         // Set the default preferences, and load first preferences
@@ -45,15 +49,21 @@ public class MainActivity extends Activity {
     }
 
     /**
+     * Save app preferences when the activity is paused.
+     */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        savePreferences();
+    }
+
+    /**
      * Inflate the menu items for use in the action bar.
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_main, menu);
-
-//        MenuItem item = menu.findItem(R.id.action_copy);
-//        item.setIconTintList(ColorStateList.valueOf(Color.RED));
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -101,32 +111,33 @@ public class MainActivity extends Activity {
         final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_default));
         mEditText.setTextSize(Integer.parseInt(fontSizeString));
 
-        // Apply elegant text height setting
-        final boolean elegantTextHeight = pref.getBoolean(getString(R.string.pref_elegant_text_height_key), Boolean.parseBoolean(getString(R.string.pref_elegant_text_height_default)));
-//        mEditText.setElegantTextHeight(elegantTextHeight);
-//        mEditText.setLineSpacing(20f, 1f);
-//        Log.e("elegant", String.valueOf(mEditText.isElegantTextHeight()));
+        // Apply line spacing setting
+        final String lineSpacingString = pref.getString(getString(R.string.pref_line_spacing_key), getString(R.string.pref_line_spacing_value_1_0));
+//        Log.e("getLineSpacingExtra", String.valueOf(mEditText.getLineSpacingExtra()));
+//        Log.e("getLineSpacingMultiplier", String.valueOf(mEditText.getLineSpacingMultiplier()));
+        mEditText.setLineSpacing(0, Float.parseFloat(lineSpacingString));
+//        Log.e("getLineSpacingExtra", String.valueOf(mEditText.getLineSpacingExtra()));
+//        Log.e("getLineSpacingMultiplier", String.valueOf(mEditText.getLineSpacingMultiplier()));
 
         // Apply editor background color setting
         final int editorBackgroundColor = pref.getInt(getString(R.string.pref_editor_background_color_key), getColor(R.color.editor_background_color));
-        mEditText.setBackgroundColor(editorBackgroundColor);
-//        getActionBar().setBackgroundDrawable(new ColorDrawable(editorBackgroundColor));
+        mRootLayout.setBackgroundColor(editorBackgroundColor);
 
         // Apply editor text color setting
         final int editorTextColor = pref.getInt(getString(R.string.pref_editor_text_color_key), getColor(R.color.editor_text_color));
         mEditText.setTextColor(editorTextColor);
 
-        final String fullscreenString = pref.getString(getString(R.string.pref_fullscreen_key), getString(R.string.pref_fullscreen_value_none));
-        mSystemUiVisibility = SettingsHelper.parseFullscreen(this, fullscreenString);
-//        if (fullscreen > 0) getWindow().getDecorView().setSystemUiVisibility(fullscreen);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        // Restore text
+        final String textString = pref.getString(getString(R.string.pref_text_key), "");
+        mEditText.setText(textString);
     }
 
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus && mSystemUiVisibility != 0) {
-//            getWindow().getDecorView().setSystemUiVisibility(mSystemUiVisibility);
-//        }
-//    }
+    /**
+     * Save preferences.
+     */
+    private void savePreferences() {
+        PreferenceManager.getDefaultSharedPreferences(this).edit()
+                .putString(getString(R.string.pref_text_key), String.valueOf(mEditText.getText()))
+                .apply();
+    }
 }

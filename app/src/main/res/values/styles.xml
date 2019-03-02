@@ -2,8 +2,10 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material">
+        <item name="android:windowActionBarOverlay">true</item>
 
-        <!--<item name="android:colorPrimary">#777777</item>-->
+
+        <!--<item name="android:colorPrimary">#77777777</item>-->
 
         <!--<item name="android:colorPrimary">@color/colorPrimary</item>-->
         <!--<item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>-->
@@ -13,7 +15,7 @@
         <!--<item name="android:actionBarTheme">@style/AppTheme.ActionBar.Theme</item>-->
     </style>
 
-    <style name="AppTheme.ActionBar.Style" parent="android:Widget.Material.Light.ActionBar.Solid">
+    <style name="AppTheme.ActionBar.Style" parent="android:Widget.Material.ActionBar.Solid">
         <item name="android:background">@color/colorActionBar</item>
         <!--<item name="android:titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>-->
     </style>

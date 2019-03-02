@@ -48,4 +48,11 @@
     <string name="pref_fullscreen_value_normal">Normal</string>
     <string name="pref_fullscreen_value_full">Full</string>
     <string name="pref_fullscreen_summary">%s</string>
+
+    <string name="pref_text_key">pref_text_key</string>
+
+    <string name="pref_line_spacing_key">pref_line_spacing_key</string>
+    <string name="pref_line_spacing_summary">%s</string>
+    <string name="pref_line_spacing_title">Line spacing</string>
+    <string name="pref_line_spacing_value_1_0">1.0</string>
 </resources>
