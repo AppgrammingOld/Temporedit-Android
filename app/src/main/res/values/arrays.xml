@@ -49,9 +49,4 @@
         <item>96</item>
     </string-array>
 
-    <string-array name="pref_theme_entries_values">
-        <item>@string/pref_theme_entry_value_light</item>
-        <item>@string/pref_theme_entry_value_dark</item>
-        <item>@string/pref_theme_entry_value_black</item>
-    </string-array>
 </resources>

@@ -31,11 +31,13 @@
     <string name="pref_font_size_title">Font size</string>
     <string name="pref_font_size_summary">%s sp</string>
     <string name="pref_font_size_default">18</string>
-    <string name="pref_theme_key">pref_theme_key</string>
-    <string name="pref_theme_summary">%s</string>
-    <string name="pref_theme_title">Theme</string>
 
-    <string name="pref_theme_entry_value_light">Light</string>
-    <string name="pref_theme_entry_value_dark">Dark</string>
-    <string name="pref_theme_entry_value_black">Black</string>
+    <string name="pref_editor_background_color_title">Background color</string>
+    <string name="pref_editor_background_color_key">pref_editor_background_color_key</string>
+    <string name="pref_editor_text_color_key">pref_editor_text_color_key</string>
+    <string name="pref_editor_text_color_title">Text Color</string>
+    <string name="pref_category_colors_title">Colors</string>
+    <string name="pref_elegant_text_height_key">pref_elegant_text_height_key</string>
+    <string name="pref_elegant_text_height_title">Elegant text height</string>
+    <string name="pref_elegant_text_height_default">false</string>
 </resources>

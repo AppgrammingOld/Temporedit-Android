@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <ListPreference
-        android:defaultValue="@string/pref_theme_entry_value_light"
-        android:dialogTitle="@string/pref_theme_title"
-        android:entries="@array/pref_theme_entries_values"
-        android:entryValues="@array/pref_theme_entries_values"
-        android:key="@string/pref_theme_key"
-        android:summary="@string/pref_theme_summary"
-        android:title="@string/pref_theme_title" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceCategory android:title="@string/pref_category_font_title">
 
@@ -41,6 +32,27 @@
             android:key="@string/pref_font_size_key"
             android:summary="@string/pref_font_size_summary"
             android:title="@string/pref_font_size_title" />
+
+        <SwitchPreference
+            android:defaultValue="@string/pref_elegant_text_height_default"
+            android:key="@string/pref_elegant_text_height_key"
+            android:title="@string/pref_elegant_text_height_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_colors_title">
+
+        <com.rarepebble.colorpicker.ColorPreference
+            android:defaultValue="#f00"
+            android:key="@string/pref_editor_background_color_key"
+            android:title="@string/pref_editor_background_color_title"
+            app:colorpicker_showAlpha="false" />
+
+        <com.rarepebble.colorpicker.ColorPreference
+            android:defaultValue="#f00"
+            android:key="@string/pref_editor_text_color_key"
+            android:title="@string/pref_editor_text_color_title"
+            app:colorpicker_showAlpha="false" />
 
     </PreferenceCategory>
 

@@ -28,12 +28,4 @@ class SettingsHelper {
             default: return Typeface.NORMAL;
         }
     }
-
-    static int parseTheme(final Context context, String themeString) {
-        ArrayMap<String, Integer> map = new ArrayMap<>();
-        map.put(context.getString(R.string.pref_theme_entry_value_light), R.style.AppTheme);
-        map.put(context.getString(R.string.pref_theme_entry_value_dark), R.style.AppTheme_Dark);
-        map.put(context.getString(R.string.pref_theme_entry_value_black), R.style.AppTheme_Black);
-        return map.get(themeString);
-    }
 }

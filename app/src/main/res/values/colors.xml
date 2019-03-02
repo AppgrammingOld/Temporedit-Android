@@ -5,4 +5,7 @@
     <color name="colorAccent">#ff9800</color>
 
     <color name="colorActionBar">#F6F6F6</color>
+
+    <color name="editor_background_color">#ffffffff</color>
+    <color name="editor_text_color">#ff000000</color>
 </resources>

@@ -3,6 +3,9 @@ package com.appgramming.temporedit;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -11,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
 
@@ -19,21 +23,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Read and apply the theme setting
-        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_entry_value_light));
-        if (!themeName.equals(getString(R.string.pref_theme_entry_value_light)))
-            setTheme(SettingsHelper.parseTheme(this, themeName));
-
         setContentView(R.layout.activity_main);
 
         mEditText = findViewById(R.id.edit_text);
 
         // Set the default preferences, and load first preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-
-
     }
 
     /**
@@ -52,6 +47,10 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_main, menu);
+
+//        MenuItem item = menu.findItem(R.id.action_copy);
+//        item.setIconTintList(ColorStateList.valueOf(Color.RED));
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -89,7 +88,7 @@ public class MainActivity extends Activity {
     private void loadPreferences() {
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Apply font typeface and style settings
+        // Apply typeface and font style settings
         final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_default));
         final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_default));
         mEditText.setTypeface(SettingsHelper.parseFontTypeface(typefaceName), SettingsHelper.parseFontStyle(styleName));
@@ -98,13 +97,19 @@ public class MainActivity extends Activity {
         final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_default));
         mEditText.setTextSize(Integer.parseInt(fontSizeString));
 
-        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_entry_value_light));
-        TypedValue outValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.themeName, outValue, true);
-        if(!outValue.string.equals(themeName)){
-            Log.e("outValue", String.valueOf(outValue.string));
-            Log.e("themeName", themeName);
-            recreate();
-        }
+        // Apply elegant text height setting
+        final boolean elegantTextHeight = pref.getBoolean(getString(R.string.pref_elegant_text_height_key), Boolean.parseBoolean(getString(R.string.pref_elegant_text_height_default)));
+//        mEditText.setElegantTextHeight(elegantTextHeight);
+//        mEditText.setLineSpacing(20f, 1f);
+//        Log.e("elegant", String.valueOf(mEditText.isElegantTextHeight()));
+
+        // Apply editor background color setting
+        final int editorBackgroundColor = pref.getInt(getString(R.string.pref_editor_background_color_key), getColor(R.color.editor_background_color));
+        mEditText.setBackgroundColor(editorBackgroundColor);
+//        getActionBar().setBackgroundDrawable(new ColorDrawable(editorBackgroundColor));
+
+        // Apply editor text color setting
+        final int editorTextColor = pref.getInt(getString(R.string.pref_editor_text_color_key), getColor(R.color.editor_text_color));
+        mEditText.setTextColor(editorTextColor);
     }
 }
