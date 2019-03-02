@@ -13,12 +13,16 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
 
     private EditText mEditText;
+
+    private int mSystemUiVisibility;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,5 +115,18 @@ public class MainActivity extends Activity {
         // Apply editor text color setting
         final int editorTextColor = pref.getInt(getString(R.string.pref_editor_text_color_key), getColor(R.color.editor_text_color));
         mEditText.setTextColor(editorTextColor);
+
+        final String fullscreenString = pref.getString(getString(R.string.pref_fullscreen_key), getString(R.string.pref_fullscreen_value_none));
+        mSystemUiVisibility = SettingsHelper.parseFullscreen(this, fullscreenString);
+//        if (fullscreen > 0) getWindow().getDecorView().setSystemUiVisibility(fullscreen);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
+
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        if (hasFocus && mSystemUiVisibility != 0) {
+//            getWindow().getDecorView().setSystemUiVisibility(mSystemUiVisibility);
+//        }
+//    }
 }

@@ -28,7 +28,6 @@
             android:dialogTitle="@string/pref_font_size_title"
             android:entries="@array/pref_font_size_entries_values"
             android:entryValues="@array/pref_font_size_entries_values"
-            android:inputType="number"
             android:key="@string/pref_font_size_key"
             android:summary="@string/pref_font_size_summary"
             android:title="@string/pref_font_size_title" />
@@ -53,6 +52,19 @@
             android:key="@string/pref_editor_text_color_key"
             android:title="@string/pref_editor_text_color_title"
             app:colorpicker_showAlpha="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_general_title">
+
+        <ListPreference
+            android:defaultValue="@string/pref_fullscreen_value_none"
+            android:dialogTitle="@string/pref_fullscreen_title"
+            android:entries="@array/pref_fullscreen_entries"
+            android:entryValues="@array/pref_fullscreen_values"
+            android:key="@string/pref_fullscreen_key"
+            android:summary="@string/pref_fullscreen_summary"
+            android:title="@string/pref_fullscreen_title" />
 
     </PreferenceCategory>
 

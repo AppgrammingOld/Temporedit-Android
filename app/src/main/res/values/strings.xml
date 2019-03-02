@@ -40,4 +40,12 @@
     <string name="pref_elegant_text_height_key">pref_elegant_text_height_key</string>
     <string name="pref_elegant_text_height_title">Elegant text height</string>
     <string name="pref_elegant_text_height_default">false</string>
+    <string name="pref_category_general_title">General</string>
+
+    <string name="pref_fullscreen_key">pref_fullscreen_key</string>
+    <string name="pref_fullscreen_title">Fullscreen mode</string>
+    <string name="pref_fullscreen_value_none">None</string>
+    <string name="pref_fullscreen_value_normal">Normal</string>
+    <string name="pref_fullscreen_value_full">Full</string>
+    <string name="pref_fullscreen_summary">%s</string>
 </resources>
