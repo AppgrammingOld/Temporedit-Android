@@ -1,6 +1,10 @@
 package com.appgramming.temporedit;
 
+import android.content.Context;
 import android.graphics.Typeface;
+import android.util.ArrayMap;
+
+import java.util.HashMap;
 
 class SettingsHelper {
 
@@ -23,5 +27,13 @@ class SettingsHelper {
             case "BOLD_ITALIC": return Typeface.BOLD_ITALIC;
             default: return Typeface.NORMAL;
         }
+    }
+
+    static int parseTheme(final Context context, String themeString) {
+        ArrayMap<String, Integer> map = new ArrayMap<>();
+        map.put(context.getString(R.string.pref_theme_entry_value_light), R.style.AppTheme);
+        map.put(context.getString(R.string.pref_theme_entry_value_dark), R.style.AppTheme_Dark);
+        map.put(context.getString(R.string.pref_theme_entry_value_black), R.style.AppTheme_Black);
+        return map.get(themeString);
     }
 }

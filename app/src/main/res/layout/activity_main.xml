@@ -10,7 +10,7 @@
         android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
+        android:background="@android:color/transparent"
         android:gravity="top"
         android:inputType="text|textMultiLine|textLongMessage"
         android:paddingStart="16dp"

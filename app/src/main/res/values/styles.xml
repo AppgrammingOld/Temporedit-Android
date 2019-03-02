@@ -2,6 +2,8 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="themeName">@string/pref_theme_entry_value_light</item>
+
         <item name="android:colorPrimary">@color/colorPrimary</item>
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorAccent">@color/colorAccent</item>
@@ -21,6 +23,16 @@
 
     <style name="AppTheme.ActionBar.Theme" parent="android:ThemeOverlay.Material.ActionBar">
         <item name="android:iconTint">?android:attr/textColorPrimary</item>
+    </style>
+
+
+    <style name="AppTheme.Dark" parent="android:Theme.Material">
+        <item name="themeName">@string/pref_theme_entry_value_dark</item>
+
+    </style>
+
+    <style name="AppTheme.Black" parent="android:Theme.Material">
+        <item name="themeName">@string/pref_theme_entry_value_black</item>
     </style>
 
     <!-- *********************************************** -->

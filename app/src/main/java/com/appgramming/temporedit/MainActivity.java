@@ -19,17 +19,21 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Read and apply the theme setting
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_entry_value_light));
+        if (!themeName.equals(getString(R.string.pref_theme_entry_value_light)))
+            setTheme(SettingsHelper.parseTheme(this, themeName));
+
         setContentView(R.layout.activity_main);
 
         mEditText = findViewById(R.id.edit_text);
 
-//        mEditText.setTypeface(Typeface.MONOSPACE);
-
-//        setActionBar((Toolbar) findViewById(R.id.toolbar));
-//        getActionBar().setDisplayShowTitleEnabled(false);
-
         // Set the default preferences, and load first preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
+
     }
 
     /**
@@ -90,12 +94,17 @@ public class MainActivity extends Activity {
         final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_default));
         mEditText.setTypeface(SettingsHelper.parseFontTypeface(typefaceName), SettingsHelper.parseFontStyle(styleName));
 
-
-        Log.e("textsize", String.valueOf(mEditText.getTextSize() / getResources().getDisplayMetrics().scaledDensity));
+        // Apply font size setting
         final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_default));
         mEditText.setTextSize(Integer.parseInt(fontSizeString));
-//        mEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, Integer.parseInt(fontSizeString));
-        Log.e("textsize", String.valueOf(mEditText.getTextSize() / getResources().getDisplayMetrics().scaledDensity));
-    }
 
+        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_entry_value_light));
+        TypedValue outValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.themeName, outValue, true);
+        if(!outValue.string.equals(themeName)){
+            Log.e("outValue", String.valueOf(outValue.string));
+            Log.e("themeName", themeName);
+            recreate();
+        }
+    }
 }
