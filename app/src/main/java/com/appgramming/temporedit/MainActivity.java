@@ -3,22 +3,13 @@ package com.appgramming.temporedit;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Layout;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
 
@@ -103,12 +94,12 @@ public class MainActivity extends Activity {
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Apply typeface and font style settings
-        final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_default));
-        final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_default));
-        mEditText.setTypeface(SettingsHelper.parseFontTypeface(typefaceName), SettingsHelper.parseFontStyle(styleName));
+        final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_evalue_default));
+        final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_evalue_normal));
+        mEditText.setTypeface(SettingsHelper.parseFontTypeface(this, typefaceName), SettingsHelper.parseFontStyle(this, styleName));
 
         // Apply font size setting
-        final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_default));
+        final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_evalue_18));
         mEditText.setTextSize(Integer.parseInt(fontSizeString));
 
         // Apply line spacing setting

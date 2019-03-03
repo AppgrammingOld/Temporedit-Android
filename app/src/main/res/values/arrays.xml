@@ -1,36 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="pref_typeface_entries">
-        <item>Default</item>
-        <item>Default Bold</item>
-        <item>Monospace</item>
-        <item>Sans serif</item>
-        <item>Serif</item>
+    <string-array name="pref_typeface_evalues">
+        <item>@string/pref_typeface_evalue_default</item>
+        <item>@string/pref_typeface_evalue_monospace</item>
+        <item>@string/pref_typeface_evalue_sans_serif</item>
+        <item>@string/pref_typeface_evalue_serif</item>
     </string-array>
 
-    <string-array name="pref_typeface_values">
-        <item>DEFAULT</item>
-        <item>DEFAULT_BOLD</item>
-        <item>MONOSPACE</item>
-        <item>SANS_SERIF</item>
-        <item>SERIF</item>
+    <string-array name="pref_font_style_evalues">
+        <item>@string/pref_font_style_evalue_normal</item>
+        <item>@string/pref_font_style_evalue_bold</item>
+        <item>@string/pref_font_style_evalue_italic</item>
+        <item>@string/pref_font_style_evalue_bold_italic</item>
     </string-array>
 
-    <string-array name="pref_font_style_entries">
-        <item>Normal</item>
-        <item>Bold</item>
-        <item>Italic</item>
-        <item>Bold Italic</item>
-    </string-array>
-
-    <string-array name="pref_font_style_values">
-        <item>NORMAL</item>
-        <item>BOLD</item>
-        <item>ITALIC</item>
-        <item>BOLD_ITALIC</item>
-    </string-array>
-
-    <string-array name="pref_font_size_entries_values">
+    <string-array name="pref_font_size_evalues">
         <item>8</item>
         <item>9</item>
         <item>10</item>
@@ -38,7 +22,7 @@
         <item>12</item>
         <item>14</item>
         <item>16</item>
-        <item>18</item>
+        <item>@string/pref_font_size_evalue_18</item>
         <item>20</item>
         <item>24</item>
         <item>30</item>
@@ -49,7 +33,7 @@
         <item>96</item>
     </string-array>
 
-    <string-array name="pref_line_spacing_entries_values">
+    <string-array name="pref_line_spacing_evalues">
         <item>@string/pref_line_spacing_value_1_0</item>
         <item>1.15</item>
         <item>1.5</item>

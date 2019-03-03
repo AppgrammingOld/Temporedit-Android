@@ -3,31 +3,31 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/pref_category_font_title">
+    <PreferenceCategory android:title="@string/pref_category_text_title">
 
         <ListPreference
-            android:defaultValue="@string/pref_typeface_default"
+            android:defaultValue="@string/pref_typeface_evalue_default"
             android:dialogTitle="@string/pref_typeface_title"
-            android:entries="@array/pref_typeface_entries"
-            android:entryValues="@array/pref_typeface_values"
+            android:entries="@array/pref_typeface_evalues"
+            android:entryValues="@array/pref_typeface_evalues"
             android:key="@string/pref_typeface_key"
             android:summary="@string/pref_typeface_summary"
             android:title="@string/pref_typeface_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_font_style_default"
+            android:defaultValue="@string/pref_font_style_evalue_normal"
             android:dialogTitle="@string/pref_font_style_title"
-            android:entries="@array/pref_font_style_entries"
-            android:entryValues="@array/pref_font_style_values"
+            android:entries="@array/pref_font_style_evalues"
+            android:entryValues="@array/pref_font_style_evalues"
             android:key="@string/pref_font_style_key"
             android:summary="@string/pref_font_style_summary"
             android:title="@string/pref_font_style_title" />
 
         <ListPreference
-            android:defaultValue="@string/pref_font_size_default"
+            android:defaultValue="@string/pref_font_size_evalue_18"
             android:dialogTitle="@string/pref_font_size_title"
-            android:entries="@array/pref_font_size_entries_values"
-            android:entryValues="@array/pref_font_size_entries_values"
+            android:entries="@array/pref_font_size_evalues"
+            android:entryValues="@array/pref_font_size_evalues"
             android:key="@string/pref_font_size_key"
             android:summary="@string/pref_font_size_summary"
             android:title="@string/pref_font_size_title" />
@@ -35,8 +35,8 @@
         <ListPreference
             android:defaultValue="@string/pref_line_spacing_value_1_0"
             android:dialogTitle="@string/pref_line_spacing_title"
-            android:entries="@array/pref_line_spacing_entries_values"
-            android:entryValues="@array/pref_line_spacing_entries_values"
+            android:entries="@array/pref_line_spacing_evalues"
+            android:entryValues="@array/pref_line_spacing_evalues"
             android:key="@string/pref_line_spacing_key"
             android:summary="@string/pref_line_spacing_summary"
             android:title="@string/pref_line_spacing_title" />
@@ -46,13 +46,13 @@
     <PreferenceCategory android:title="@string/pref_category_colors_title">
 
         <com.rarepebble.colorpicker.ColorPreference
-            android:defaultValue="#f00"
+            android:defaultValue="@string/pref_editor_background_color_default"
             android:key="@string/pref_editor_background_color_key"
             android:title="@string/pref_editor_background_color_title"
             app:colorpicker_showAlpha="false" />
 
         <com.rarepebble.colorpicker.ColorPreference
-            android:defaultValue="#f00"
+            android:defaultValue="@string/pref_editor_text_color_default"
             android:key="@string/pref_editor_text_color_key"
             android:title="@string/pref_editor_text_color_title"
             app:colorpicker_showAlpha="false" />

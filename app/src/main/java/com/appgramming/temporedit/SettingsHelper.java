@@ -3,41 +3,26 @@ package com.appgramming.temporedit;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.ArrayMap;
-import android.view.View;
-
-import java.util.HashMap;
 
 class SettingsHelper {
 
-    static Typeface parseFontTypeface(String styleString) {
-        switch (styleString) {
-            case "DEFAULT":
-                return Typeface.DEFAULT;
-            case "DEFAULT_BOLD":
-                return Typeface.DEFAULT_BOLD;
-            case "MONOSPACE":
-                return Typeface.MONOSPACE;
-            case "SANS_SERIF":
-                return Typeface.SANS_SERIF;
-            case "SERIF":
-                return Typeface.SERIF;
-            default:
-                return Typeface.DEFAULT;
-        }
+    static Typeface parseFontTypeface(final Context context, String typefaceString) {
+        ArrayMap<String, Typeface> map = new ArrayMap<>();
+        map.put(context.getString(R.string.pref_typeface_evalue_default), Typeface.DEFAULT);
+        map.put(context.getString(R.string.pref_typeface_evalue_monospace), Typeface.MONOSPACE);
+        map.put(context.getString(R.string.pref_typeface_evalue_sans_serif), Typeface.SANS_SERIF);
+        map.put(context.getString(R.string.pref_typeface_evalue_serif), Typeface.SERIF);
+        Typeface typeface = map.get(typefaceString);
+        return typeface != null ? typeface : Typeface.DEFAULT;
     }
 
-    static int parseFontStyle(String styleString) {
-        switch (styleString) {
-            case "NORMAL":
-                return Typeface.NORMAL;
-            case "BOLD":
-                return Typeface.BOLD;
-            case "ITALIC":
-                return Typeface.ITALIC;
-            case "BOLD_ITALIC":
-                return Typeface.BOLD_ITALIC;
-            default:
-                return Typeface.NORMAL;
-        }
+    static int parseFontStyle(final Context context, String styleString) {
+        ArrayMap<String, Integer> map = new ArrayMap<>();
+        map.put(context.getString(R.string.pref_font_style_evalue_normal), Typeface.NORMAL);
+        map.put(context.getString(R.string.pref_font_style_evalue_bold), Typeface.BOLD);
+        map.put(context.getString(R.string.pref_font_style_evalue_italic), Typeface.ITALIC);
+        map.put(context.getString(R.string.pref_font_style_evalue_bold_italic), Typeface.BOLD_ITALIC);
+        Integer style = map.get(styleString);
+        return style != null ? style : Typeface.NORMAL;
     }
 }
