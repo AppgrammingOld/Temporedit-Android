@@ -12,7 +12,7 @@
     <!-- ****************************************************************** -->
 
     <style name="AppTheme" parent="android:Theme.Material">
-        <item name="android:windowActionBarOverlay">true</item>
+        <!--<item name="android:windowActionBarOverlay">true</item>-->
 
         <!--<item name="android:colorPrimary">@color/colorPrimary</item>-->
         <!--<item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>-->

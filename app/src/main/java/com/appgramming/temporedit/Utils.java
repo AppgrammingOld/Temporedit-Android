@@ -11,16 +11,18 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 
-class SystemUtils {
+class Utils {
 
     /**
      * Copies a text to the clipboard.
      */
-    static void copyToClipboard(Context context, String label, String text) {
+    @SuppressWarnings("SameParameterValue")
+    static void copyToClipboard(Context context, int labelResId, String text) {
         final ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         if (clipboard != null) {
-            final ClipData clip = ClipData.newPlainText(label, text);
+            final ClipData clip = ClipData.newPlainText(context.getString(labelResId), text);
             clipboard.setPrimaryClip(clip);
         }
     }
@@ -28,12 +30,13 @@ class SystemUtils {
     /**
      * Starts a Send Intent to share some text.
      */
-    static void shareText(Context context, String text, String chooserTitle) {
+    @SuppressWarnings("SameParameterValue")
+    static void shareText(Context context, String text, int chooserTitleResId) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, text);
         sendIntent.setType("text/plain");
-        context.startActivity(Intent.createChooser(sendIntent, chooserTitle));
+        context.startActivity(Intent.createChooser(sendIntent, context.getString(chooserTitleResId)));
     }
 
     /**
@@ -73,5 +76,18 @@ class SystemUtils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         context.startActivity(intent);
+    }
+
+    /**
+     * Wrapper around Resources.getColor(int id) that was deprecated in API 23. Returns a color integer
+     * associated with a particular resource ID.
+     */
+    @SuppressWarnings({"deprecation", "SameParameterValue"})
+    static int getColor(Context context, int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return context.getColor(id);
+        } else {
+            return context.getResources().getColor(id);
+        }
     }
 }

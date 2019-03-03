@@ -14,7 +14,7 @@ class SettingsHelper {
     /**
      * Returns a default Typeface object from a preference value string.
      */
-    static Typeface parseFontTypeface(final Context context, String typefaceString) {
+    static Typeface parseTypeface(final Context context, String typefaceString) {
         ArrayMap<String, Typeface> map = new ArrayMap<>();
         map.put(context.getString(R.string.pref_typeface_evalue_default), Typeface.DEFAULT);
         map.put(context.getString(R.string.pref_typeface_evalue_monospace), Typeface.MONOSPACE);

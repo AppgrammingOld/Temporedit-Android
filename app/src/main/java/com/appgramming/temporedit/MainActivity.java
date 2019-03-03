@@ -73,30 +73,30 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_copy:
-                SystemUtils.copyToClipboard(this, getString(R.string.app_name), String.valueOf(mEditText.getText()));
+                Utils.copyToClipboard(this, R.string.app_name, String.valueOf(mEditText.getText()));
                 return true;
             case R.id.action_cut:
-                SystemUtils.copyToClipboard(this, getString(R.string.app_name), String.valueOf(mEditText.getText()));
+                Utils.copyToClipboard(this, R.string.app_name, String.valueOf(mEditText.getText()));
                 mEditText.getText().clear();
                 return true;
             case R.id.action_share:
-                SystemUtils.shareText(this, String.valueOf(mEditText.getText()), getString(R.string.share_title));
+                Utils.shareText(this, String.valueOf(mEditText.getText()), R.string.share_title);
                 return true;
             case R.id.action_clear:
                 mEditText.getText().clear();
                 return true;
             case R.id.action_paste:
-                String clipText = SystemUtils.pasteTextFromClipboard(this);
+                String clipText = Utils.pasteTextFromClipboard(this);
                 if (clipText != null) mEditText.setText(clipText);
                 return true;
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
             case R.id.action_rate:
-                SystemUtils.viewUrl(this, getString(R.string.action_rate_url));
+                Utils.viewUrl(this, getString(R.string.action_rate_url));
                 return true;
             case R.id.action_help:
-                SystemUtils.viewUrl(this, getString(R.string.action_help_url));
+                Utils.viewUrl(this, getString(R.string.action_help_url));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -110,26 +110,32 @@ public class MainActivity extends Activity {
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         // Apply typeface and font style settings
-        final String typefaceName = pref.getString(getString(R.string.pref_typeface_key), getString(R.string.pref_typeface_evalue_default));
-        final String styleName = pref.getString(getString(R.string.pref_font_style_key), getString(R.string.pref_font_style_evalue_normal));
-        mEditText.setTypeface(SettingsHelper.parseFontTypeface(this, typefaceName), SettingsHelper.parseFontStyle(this, styleName));
+        final String typefaceStr = pref.getString(getString(R.string.pref_typeface_key),
+                getString(R.string.pref_typeface_evalue_default));
+        final String styleStr = pref.getString(getString(R.string.pref_font_style_key),
+                getString(R.string.pref_font_style_evalue_normal));
+        mEditText.setTypeface(SettingsHelper.parseTypeface(this, typefaceStr),
+                SettingsHelper.parseFontStyle(this, styleStr));
 
         // Apply font size setting
-        final String fontSizeString = pref.getString(getString(R.string.pref_font_size_key), getString(R.string.pref_font_size_evalue_18));
-        mEditText.setTextSize(Integer.parseInt(fontSizeString));
+        final String sizeStr = pref.getString(getString(R.string.pref_font_size_key),
+                getString(R.string.pref_font_size_evalue_18));
+        if (sizeStr != null) mEditText.setTextSize(Integer.parseInt(sizeStr));
 
         // Apply line spacing setting
-        final String lineSpacingString = pref.getString(getString(R.string.pref_line_spacing_key), getString(R.string.pref_line_spacing_value_1_0));
-        mEditText.setLineSpacing(0, Float.parseFloat(lineSpacingString));
+        final String spacingStr = pref.getString(getString(R.string.pref_line_spacing_key),
+                getString(R.string.pref_line_spacing_value_1_0));
+        if (spacingStr != null) mEditText.setLineSpacing(0, Float.parseFloat(spacingStr));
 
         // Apply editor background color setting
-        final int editorBackgroundColor = pref.getInt(getString(R.string.pref_editor_background_color_key), getColor(R.color.editor_background_color));
-//        mRootLayout.setBackgroundColor(editorBackgroundColor);
-        getWindow().setBackgroundDrawable(new ColorDrawable(editorBackgroundColor));
+        final int backColor = pref.getInt(getString(R.string.pref_editor_background_color_key),
+                Utils.getColor(this, R.color.editor_background_color));
+        getWindow().setBackgroundDrawable(new ColorDrawable(backColor));
 
         // Apply editor text color setting
-        final int editorTextColor = pref.getInt(getString(R.string.pref_editor_text_color_key), getColor(R.color.editor_text_color));
-        mEditText.setTextColor(editorTextColor);
+        final int textColor = pref.getInt(getString(R.string.pref_editor_text_color_key),
+                Utils.getColor(this, R.color.editor_text_color));
+        mEditText.setTextColor(textColor);
 
         // Restore app state (current text)
         final String textString = pref.getString(getString(R.string.pref_text_key), "");

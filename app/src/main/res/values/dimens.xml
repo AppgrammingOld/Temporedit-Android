@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Temporedit
+    Copyright (C) 2019 Appgramming. All rights reserved.
+    https://www.appgramming.com
+-->
+
+<resources>
+    <dimen name="editor_padding_horizontal">16dp</dimen>
+    <dimen name="editor_padding_top">8dp</dimen>
+</resources>

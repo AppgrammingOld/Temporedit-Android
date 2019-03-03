@@ -5,12 +5,14 @@
     https://www.appgramming.com
 -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_copy"
         android:icon="@drawable/ic_content_copy_24dp"
         android:showAsAction="always"
-        android:title="@string/action_copy" />
+        android:title="@string/action_copy"
+        tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/action_cut"
         android:icon="@drawable/ic_content_cut_24dp"
