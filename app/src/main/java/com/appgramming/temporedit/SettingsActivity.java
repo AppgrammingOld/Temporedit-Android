@@ -1,3 +1,8 @@
+/*
+ * Temporedit
+ * Copyright (C) 2019 Appgramming. All rights reserved.
+ * https://www.appgramming.com
+ */
 package com.appgramming.temporedit;
 
 import android.os.Bundle;

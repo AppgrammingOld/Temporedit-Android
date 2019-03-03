@@ -1,29 +1,37 @@
+/*
+ * Temporedit
+ * Copyright (C) 2019 Appgramming. All rights reserved.
+ * https://www.appgramming.com
+ */
 package com.appgramming.temporedit;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
+/**
+ * The main Temporedit activity.
+ */
 public class MainActivity extends Activity {
 
     private EditText mEditText;
-    private LinearLayout mRootLayout;
 
-    private int mSystemUiVisibility;
-
+    /**
+     * Init activity functionality.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRootLayout = findViewById(R.id.root_layout);
+        // Find main views
         mEditText = findViewById(R.id.edit_text);
 
         // Set the default preferences, and load first preferences
@@ -31,7 +39,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Loads preferences when the activity is resumed.
+     * Loads app preferences when the activity is resumed.
      */
     @Override
     protected void onResume() {
@@ -55,10 +63,12 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_main, menu);
-
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Handle action bar items click events.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -82,14 +92,20 @@ public class MainActivity extends Activity {
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
-
+            case R.id.action_rate:
+                SystemUtils.viewUrl(this, getString(R.string.action_rate_url));
+                return true;
+            case R.id.action_help:
+                SystemUtils.viewUrl(this, getString(R.string.action_help_url));
+                return true;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    /**
+     * Load app preferences.
+     */
     private void loadPreferences() {
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -104,27 +120,24 @@ public class MainActivity extends Activity {
 
         // Apply line spacing setting
         final String lineSpacingString = pref.getString(getString(R.string.pref_line_spacing_key), getString(R.string.pref_line_spacing_value_1_0));
-//        Log.e("getLineSpacingExtra", String.valueOf(mEditText.getLineSpacingExtra()));
-//        Log.e("getLineSpacingMultiplier", String.valueOf(mEditText.getLineSpacingMultiplier()));
         mEditText.setLineSpacing(0, Float.parseFloat(lineSpacingString));
-//        Log.e("getLineSpacingExtra", String.valueOf(mEditText.getLineSpacingExtra()));
-//        Log.e("getLineSpacingMultiplier", String.valueOf(mEditText.getLineSpacingMultiplier()));
 
         // Apply editor background color setting
         final int editorBackgroundColor = pref.getInt(getString(R.string.pref_editor_background_color_key), getColor(R.color.editor_background_color));
-        mRootLayout.setBackgroundColor(editorBackgroundColor);
+//        mRootLayout.setBackgroundColor(editorBackgroundColor);
+        getWindow().setBackgroundDrawable(new ColorDrawable(editorBackgroundColor));
 
         // Apply editor text color setting
         final int editorTextColor = pref.getInt(getString(R.string.pref_editor_text_color_key), getColor(R.color.editor_text_color));
         mEditText.setTextColor(editorTextColor);
 
-        // Restore text
+        // Restore app state (current text)
         final String textString = pref.getString(getString(R.string.pref_text_key), "");
         mEditText.setText(textString);
     }
 
     /**
-     * Save preferences.
+     * Save app state (current text) to preferences.
      */
     private void savePreferences() {
         PreferenceManager.getDefaultSharedPreferences(this).edit()

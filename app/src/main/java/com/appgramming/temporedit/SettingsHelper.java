@@ -1,3 +1,8 @@
+/*
+ * Temporedit
+ * Copyright (C) 2019 Appgramming. All rights reserved.
+ * https://www.appgramming.com
+ */
 package com.appgramming.temporedit;
 
 import android.content.Context;
@@ -6,6 +11,9 @@ import android.util.ArrayMap;
 
 class SettingsHelper {
 
+    /**
+     * Returns a default Typeface object from a preference value string.
+     */
     static Typeface parseFontTypeface(final Context context, String typefaceString) {
         ArrayMap<String, Typeface> map = new ArrayMap<>();
         map.put(context.getString(R.string.pref_typeface_evalue_default), Typeface.DEFAULT);
@@ -16,6 +24,9 @@ class SettingsHelper {
         return typeface != null ? typeface : Typeface.DEFAULT;
     }
 
+    /**
+     * Returns a font style constant from a preference value string.
+     */
     static int parseFontStyle(final Context context, String styleString) {
         ArrayMap<String, Integer> map = new ArrayMap<>();
         map.put(context.getString(R.string.pref_font_style_evalue_normal), Typeface.NORMAL);

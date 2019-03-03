@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Temporedit
+    Copyright (C) 2019 Appgramming. All rights reserved.
+    https://www.appgramming.com
+-->
+
 <resources>
+
+    <!-- Text -> Typeface preference entries and values -->
     <string-array name="pref_typeface_evalues">
         <item>@string/pref_typeface_evalue_default</item>
         <item>@string/pref_typeface_evalue_monospace</item>
@@ -7,6 +15,7 @@
         <item>@string/pref_typeface_evalue_serif</item>
     </string-array>
 
+    <!-- Text -> Font style preference entries and values -->
     <string-array name="pref_font_style_evalues">
         <item>@string/pref_font_style_evalue_normal</item>
         <item>@string/pref_font_style_evalue_bold</item>
@@ -14,6 +23,7 @@
         <item>@string/pref_font_style_evalue_bold_italic</item>
     </string-array>
 
+    <!-- Text -> Font size preference entries and values -->
     <string-array name="pref_font_size_evalues">
         <item>8</item>
         <item>9</item>
@@ -33,7 +43,11 @@
         <item>96</item>
     </string-array>
 
+    <!-- Text -> Line spacing preference entries and values -->
     <string-array name="pref_line_spacing_evalues">
+        <item>0.75</item>
+        <item>0.85</item>
+        <item>0.95</item>
         <item>@string/pref_line_spacing_value_1_0</item>
         <item>1.15</item>
         <item>1.5</item>

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Temporedit
+    Copyright (C) 2019 Appgramming. All rights reserved.
+    https://www.appgramming.com
+-->
+
 <resources>
-    <color name="colorPrimary">#ff9800</color>
-    <color name="colorPrimaryDark">#ff9800</color>
-    <color name="colorAccent">#ff9800</color>
+    <!-- Theme colors -->
+    <!--<color name="colorPrimary">#ff9800</color>-->
+    <!--<color name="colorPrimaryDark">#ff9800</color>-->
+    <!--<color name="colorAccent">#ff9800</color>-->
+    <color name="colorAccent">#ff000000</color>
 
-    <color name="colorActionBar">#F6F6F6</color>
-
+    <!-- Default values for color preferences -->
     <color name="editor_background_color">#ffffffff</color>
     <color name="editor_text_color">#ff000000</color>
 </resources>
