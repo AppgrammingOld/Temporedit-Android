@@ -152,7 +152,7 @@ public class MainActivity extends Activity {
         final int textColor = pref.getInt(getString(R.string.pref_editor_text_color_key),
                 Utils.getColor(this, R.color.editor_text_color));
         mEditText.setTextColor(textColor);
-//        mEditText.setHighlightColor((textColor & 0x00ffffff) | (0x77 << 24));
+        mEditText.setHighlightColor((textColor & 0x00ffffff) | (0x77 << 24));
 
         // Restore app state (current text)
         final String textString = pref.getString(getString(R.string.pref_text_key), "");
