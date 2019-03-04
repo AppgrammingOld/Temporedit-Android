@@ -5,14 +5,6 @@
 -->
 
 <resources>
-    <!-- Theme colors -->
-    <!--<color name="colorPrimary">#ff9800</color>-->
-    <!--<color name="colorPrimaryDark">#ff9800</color>-->
-    <!--<color name="colorAccent">#ff9800</color>-->
-    <!--<color name="colorAccent">#ff000000</color>-->
-
-
-
     <!-- Base colors -->
     <color name="white">#ffffffff</color>
     <color name="grey_300">#ffe0e0e0</color>

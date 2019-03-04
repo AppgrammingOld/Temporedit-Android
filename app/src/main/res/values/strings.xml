@@ -77,6 +77,7 @@
     <string name="pref_theme_title">App theme</string>
     <string name="pref_theme_summary">%s</string>
     <string name="pref_theme_key">pref_theme_key</string>
+    <string name="pref_theme_evalue_default">@string/pref_theme_evalue_light</string>
     <string name="pref_theme_evalue_light">Light</string>
     <string name="pref_theme_evalue_white">White</string>
     <string name="pref_theme_evalue_dark">Dark</string>

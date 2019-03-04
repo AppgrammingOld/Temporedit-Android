@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
         // Read and apply the theme setting
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_evalue_dark));
+        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_evalue_default));
         if (!Objects.equals(themeName, getString(R.string.pref_theme_evalue_temporary)))
             setTheme(SettingsHelper.parseTheme(this, themeName));
 

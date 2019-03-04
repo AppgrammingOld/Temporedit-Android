@@ -49,7 +49,7 @@
     <PreferenceCategory android:title="@string/pref_category_general_title">
 
         <ListPreference
-            android:defaultValue="@string/pref_theme_evalue_dark"
+            android:defaultValue="@string/pref_theme_evalue_default"
             android:dialogTitle="@string/pref_theme_title"
             android:entries="@array/pref_theme_evalues"
             android:entryValues="@array/pref_theme_evalues"
