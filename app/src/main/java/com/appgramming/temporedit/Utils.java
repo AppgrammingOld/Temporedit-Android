@@ -11,7 +11,6 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 
 class Utils {
 
@@ -76,18 +75,5 @@ class Utils {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         context.startActivity(intent);
-    }
-
-    /**
-     * Wrapper around Resources.getColor(int id) that was deprecated in API 23. Returns a color integer
-     * associated with a particular resource ID.
-     */
-    @SuppressWarnings({"deprecation", "SameParameterValue"})
-    static int getColor(Context context, int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return context.getColor(id);
-        } else {
-            return context.getResources().getColor(id);
-        }
     }
 }

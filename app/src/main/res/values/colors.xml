@@ -9,7 +9,7 @@
     <!--<color name="colorPrimary">#ff9800</color>-->
     <!--<color name="colorPrimaryDark">#ff9800</color>-->
     <!--<color name="colorAccent">#ff9800</color>-->
-    <color name="colorAccent">#ff000000</color>
+    <!--<color name="colorAccent">#ff000000</color>-->
 
 
 
@@ -18,22 +18,31 @@
     <color name="grey_300">#ffe0e0e0</color>
     <color name="black">#ff000000</color>
     <color name="black1">#ff000001</color>
+    <color name="orange_500">#ffff9800</color>
+    <color name="orange_500_dark">#ffc66900</color>
 
-    <!-- App white theme colors -->
+    <!-- Default colors -->
+    <color name="color_default_accent">@color/orange_500</color>
+
+    <!-- White theme colors -->
     <color name="color_theme_white_primary">@color/white</color>
-    <color name="color_theme_white_primary_dark">@color/white</color>
+    <color name="color_theme_white_primary_dark">@color/grey_300</color>
     <color name="color_theme_white_accent">@color/black</color>
-    <color name="color_theme_white_status_bar">@color/grey_300</color>
-    <color name="color_theme_white_navigation_bar">@color/grey_300</color>
+    <color name="color_theme_white_text">@color/black</color>
 
-    <!-- App black theme colors -->
+    <!-- Black theme colors -->
     <color name="color_theme_black_primary">@color/black</color>
-    <color name="color_theme_black_primary_dark">@color/black</color>
     <color name="color_theme_black_accent">@color/white</color>
     <color name="color_theme_black_navigation_bar">@color/black1</color>
 
-    <!-- Default values for color preferences -->
-    <color name="editor_background_color">#ffffffff</color>
-    <color name="editor_text_color">#ff000000</color>
+    <!-- Temporary theme colors -->
+    <color name="color_theme_temporary_primary">@color/orange_500</color>
+    <color name="color_theme_temporary_primary_dark">@color/orange_500_dark</color>
+
+    <!-- Turbo Pascal theme colors -->
+    <color name="color_theme_turbo_pascal_primary">#ffc0c0c0</color>
+    <color name="color_theme_turbo_pascal_accent">#ffaaaaaa</color>
+    <color name="color_theme_turbo_pascal_background">#ff000080</color>
+    <color name="color_theme_turbo_pascal_text">#ffffff00</color>
 
 </resources>

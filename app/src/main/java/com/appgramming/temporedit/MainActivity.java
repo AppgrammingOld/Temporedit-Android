@@ -8,7 +8,6 @@ package com.appgramming.temporedit;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
@@ -16,12 +15,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import java.util.Objects;
+
 /**
  * The main Temporedit activity.
  */
 public class MainActivity extends Activity {
 
-    static final int SETTINGS_REQUEST = 1;
+    private static final int SETTINGS_REQUEST = 1;
 
     private EditText mEditText;
 
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
         // Read and apply the theme setting
         final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_evalue_dark));
-        if (!themeName.equals(getString(R.string.pref_theme_evalue_dark)))
+        if (!Objects.equals(themeName, getString(R.string.pref_theme_evalue_temporary)))
             setTheme(SettingsHelper.parseTheme(this, themeName));
 
         super.onCreate(savedInstanceState);
@@ -142,17 +143,6 @@ public class MainActivity extends Activity {
         final String spacingStr = pref.getString(getString(R.string.pref_line_spacing_key),
                 getString(R.string.pref_line_spacing_value_1_0));
         if (spacingStr != null) mEditText.setLineSpacing(0, Float.parseFloat(spacingStr));
-
-        // Apply editor background color setting
-        final int backColor = pref.getInt(getString(R.string.pref_editor_background_color_key),
-                Utils.getColor(this, R.color.editor_background_color));
-        getWindow().setBackgroundDrawable(new ColorDrawable(backColor));
-
-        // Apply editor text color setting
-        final int textColor = pref.getInt(getString(R.string.pref_editor_text_color_key),
-                Utils.getColor(this, R.color.editor_text_color));
-        mEditText.setTextColor(textColor);
-//        mEditText.setHighlightColor((textColor & 0x00ffffff) | (0x77 << 24));
 
         // Restore app state (current text)
         final String textString = pref.getString(getString(R.string.pref_text_key), "");

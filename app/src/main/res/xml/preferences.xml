@@ -4,8 +4,7 @@
     https://www.appgramming.com
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/pref_category_text_title">
 
@@ -47,19 +46,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/pref_category_colors_title">
-
-        <com.rarepebble.colorpicker.ColorPreference
-            android:defaultValue="@string/pref_editor_background_color_default"
-            android:key="@string/pref_editor_background_color_key"
-            android:title="@string/pref_editor_background_color_title"
-            app:colorpicker_showAlpha="false" />
-
-        <com.rarepebble.colorpicker.ColorPreference
-            android:defaultValue="@string/pref_editor_text_color_default"
-            android:key="@string/pref_editor_text_color_key"
-            android:title="@string/pref_editor_text_color_title"
-            app:colorpicker_showAlpha="false" />
+    <PreferenceCategory android:title="@string/pref_category_general_title">
 
         <ListPreference
             android:defaultValue="@string/pref_theme_evalue_dark"

@@ -46,7 +46,10 @@ class SettingsHelper {
         map.put(context.getString(R.string.pref_theme_evalue_light), R.style.AppTheme_Light);
         map.put(context.getString(R.string.pref_theme_evalue_black), R.style.AppTheme_Black);
         map.put(context.getString(R.string.pref_theme_evalue_white), R.style.AppTheme_White);
+        map.put(context.getString(R.string.pref_theme_evalue_temporary), R.style.AppTheme_Temporary);
+        map.put(context.getString(R.string.pref_theme_evalue_turbo_pascal), R.style.AppTheme_TurboPascal);
+
         Integer themeId = map.get(themeString);
-        return themeId != null ? themeId : R.style.AppTheme_Dark;
+        return themeId != null ? themeId : R.style.AppTheme_Light;
     }
 }

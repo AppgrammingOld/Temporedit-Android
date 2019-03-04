@@ -22,8 +22,9 @@
         android:importantForAutofill="no"
         android:inputType="text|textMultiLine|textLongMessage"
         android:paddingStart="@dimen/editor_padding_horizontal"
-        android:paddingTop="@dimen/editor_padding_top"
+        android:paddingTop="@dimen/editor_padding_vertical"
         android:paddingEnd="@dimen/editor_padding_horizontal"
+        android:paddingBottom="@dimen/editor_padding_vertical"
         tools:ignore="LabelFor"
         tools:targetApi="o" />
 

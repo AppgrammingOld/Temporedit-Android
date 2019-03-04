@@ -11,7 +11,7 @@
     <!-- ****************************************************************** -->
 
     <style name="AppTheme.Light" parent="android:Theme.Material.Light">
-        <!--<item name="android:colorAccent">@color/colorAccent</item>-->
+        <item name="android:colorAccent">@color/color_default_accent</item>
     </style>
 
     <!-- ****************************************************************** -->
@@ -22,15 +22,13 @@
         <item name="android:colorPrimary">@color/color_theme_white_primary</item>
         <item name="android:colorPrimaryDark">@color/color_theme_white_primary_dark</item>
         <item name="android:colorAccent">@color/color_theme_white_accent</item>
-        <item name="android:statusBarColor">@color/color_theme_white_status_bar</item>
-        <item name="android:navigationBarColor">@color/color_theme_white_navigation_bar</item>
+        <item name="android:textColorPrimary">@color/color_theme_white_text</item>
+
+        <item name="android:windowBackground">@color/color_theme_white_primary</item>
+
+        <item name="android:navigationBarColor">@color/color_theme_white_primary_dark</item>
         <!--<item name="android:windowLightNavigationBar">true</item>-->
         <!--<item name="android:windowLightStatusBar">true</item>-->
-        <item name="android:actionBarPopupTheme">@style/AppTheme.White.ActionBarPopupTheme</item>
-    </style>
-
-    <style name="AppTheme.White.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Light">
-        <item name="android:background">@color/color_theme_white_primary</item>
     </style>
 
     <!-- ****************************************************************** -->
@@ -38,7 +36,7 @@
     <!-- ****************************************************************** -->
 
     <style name="AppTheme.Dark" parent="android:Theme.Material">
-        <!--<item name="android:colorAccent">@color/colorAccent</item>-->
+        <item name="android:colorAccent">@color/color_default_accent</item>
     </style>
 
     <!-- ****************************************************************** -->
@@ -47,21 +45,45 @@
 
     <style name="AppTheme.Black" parent="android:Theme.Material">
         <item name="android:colorPrimary">@color/color_theme_black_primary</item>
-        <item name="android:colorPrimaryDark">@color/color_theme_black_primary_dark</item>
+        <item name="android:colorPrimaryDark">@color/color_theme_black_primary</item>
         <item name="android:colorAccent">@color/color_theme_black_accent</item>
+
+        <item name="android:windowBackground">@color/color_theme_black_primary</item>
+
         <item name="android:navigationBarColor">@color/color_theme_black_navigation_bar</item>
-        <item name="android:actionBarPopupTheme">@style/AppTheme.Black.ActionBarPopupTheme</item>
     </style>
 
-    <style name="AppTheme.Black.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Dark">
-        <item name="android:background">@color/color_theme_black_primary</item>
+    <!-- ****************************************************************** -->
+    <!-- App temporary theme                                                    -->
+    <!-- ****************************************************************** -->
+
+    <style name="AppTheme.Temporary" parent="android:Theme.Material.Light">
+        <item name="android:colorPrimary">@color/color_theme_temporary_primary</item>
+        <item name="android:colorPrimaryDark">@color/color_theme_temporary_primary_dark</item>
+        <item name="android:colorAccent">@color/color_default_accent</item>
     </style>
+
+    <!-- ****************************************************************** -->
+    <!-- App temporary theme                                                    -->
+    <!-- ****************************************************************** -->
+
+    <style name="AppTheme.TurboPascal" parent="android:Theme.Material.Light">
+        <item name="android:colorPrimary">@color/color_theme_turbo_pascal_primary</item>
+        <item name="android:colorAccent">@color/color_theme_turbo_pascal_accent</item>
+
+        <item name="android:editTextColor">@color/color_theme_turbo_pascal_text</item>
+
+        <item name="android:windowBackground">@color/color_theme_turbo_pascal_background</item>
+    </style>
+
 
     <!-- ****************************************************************** -->
     <!-- Settings activity theme                                            -->
     <!-- ****************************************************************** -->
 
     <!-- Settings theme -->
-    <style name="AppTheme.SettingsTheme" parent="android:Theme.Material.Settings"></style>
+    <style name="AppTheme.SettingsTheme" parent="android:Theme.Material.Settings">
+        <item name="android:colorAccent">@color/color_default_accent</item>
+    </style>
 
 </resources>

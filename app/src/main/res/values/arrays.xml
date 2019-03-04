@@ -53,12 +53,14 @@
         <item>2.0</item>
     </string-array>
 
-    <!-- Colors -> App theme preference entries and values -->
+    <!-- General -> App theme preference entries and values -->
     <string-array name="pref_theme_evalues">
         <item>@string/pref_theme_evalue_light</item>
         <item>@string/pref_theme_evalue_white</item>
         <item>@string/pref_theme_evalue_dark</item>
         <item>@string/pref_theme_evalue_black</item>
+        <item>@string/pref_theme_evalue_temporary</item>
+        <item>@string/pref_theme_evalue_turbo_pascal</item>
     </string-array>
 
 </resources>
