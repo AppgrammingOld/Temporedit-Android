@@ -14,7 +14,11 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 
 /**
  * The main Temporedit activity.
@@ -33,6 +37,14 @@ public class MainActivity extends Activity {
 
         // Find main views
         mEditText = findViewById(R.id.edit_text);
+
+        final ScrollView scrollView = findViewById(R.id.scroll_view);
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                getActionBar().setElevation(scrollView.canScrollVertically(-1) ? 16f : 0f);
+            }
+        });
 
         // Set the default preferences, and load first preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
@@ -63,6 +75,12 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_activity_main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_rate);
+
+//        item.setIconTintList(ColorStateList.valueOf(Color.RED));
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -130,7 +148,11 @@ public class MainActivity extends Activity {
         // Apply editor background color setting
         final int backColor = pref.getInt(getString(R.string.pref_editor_background_color_key),
                 Utils.getColor(this, R.color.editor_background_color));
+//        mEditText.setBackgroundColor(backColor);
         getWindow().setBackgroundDrawable(new ColorDrawable(backColor));
+        getActionBar().setBackgroundDrawable(new ColorDrawable(backColor));
+        getWindow().setStatusBarColor(backColor);
+        getWindow().setNavigationBarColor(backColor);
 
         // Apply editor text color setting
         final int textColor = pref.getInt(getString(R.string.pref_editor_text_color_key),
