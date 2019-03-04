@@ -21,6 +21,8 @@ import android.widget.EditText;
  */
 public class MainActivity extends Activity {
 
+    static final int SETTINGS_REQUEST = 1;
+
     private EditText mEditText;
 
     /**
@@ -28,6 +30,13 @@ public class MainActivity extends Activity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Read and apply the theme setting
+        final SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        final String themeName = pref.getString(getString(R.string.pref_theme_key), getString(R.string.pref_theme_evalue_dark));
+        if (!themeName.equals(getString(R.string.pref_theme_evalue_dark)))
+            setTheme(SettingsHelper.parseTheme(this, themeName));
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -90,7 +99,7 @@ public class MainActivity extends Activity {
                 if (clipText != null) mEditText.setText(clipText);
                 return true;
             case R.id.action_settings:
-                startActivity(new Intent(this, SettingsActivity.class));
+                startActivityForResult(new Intent(this, SettingsActivity.class), SETTINGS_REQUEST);
                 return true;
             case R.id.action_rate:
                 Utils.viewUrl(this, getString(R.string.action_rate_url));
@@ -100,6 +109,13 @@ public class MainActivity extends Activity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SETTINGS_REQUEST) {
+            recreate();
         }
     }
 
@@ -136,6 +152,7 @@ public class MainActivity extends Activity {
         final int textColor = pref.getInt(getString(R.string.pref_editor_text_color_key),
                 Utils.getColor(this, R.color.editor_text_color));
         mEditText.setTextColor(textColor);
+//        mEditText.setHighlightColor((textColor & 0x00ffffff) | (0x77 << 24));
 
         // Restore app state (current text)
         final String textString = pref.getString(getString(R.string.pref_text_key), "");

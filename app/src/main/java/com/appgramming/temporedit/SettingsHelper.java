@@ -36,4 +36,17 @@ class SettingsHelper {
         Integer style = map.get(styleString);
         return style != null ? style : Typeface.NORMAL;
     }
+
+    /**
+     * Returns a theme resource id from a theme value string.
+     */
+    static int parseTheme(final Context context, String themeString) {
+        ArrayMap<String, Integer> map = new ArrayMap<>();
+        map.put(context.getString(R.string.pref_theme_evalue_dark), R.style.AppTheme_Dark);
+        map.put(context.getString(R.string.pref_theme_evalue_light), R.style.AppTheme_Light);
+        map.put(context.getString(R.string.pref_theme_evalue_black), R.style.AppTheme_Black);
+        map.put(context.getString(R.string.pref_theme_evalue_white), R.style.AppTheme_White);
+        Integer themeId = map.get(themeString);
+        return themeId != null ? themeId : R.style.AppTheme_Dark;
+    }
 }

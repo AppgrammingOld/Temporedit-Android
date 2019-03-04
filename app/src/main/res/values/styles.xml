@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Temporedit
     Copyright (C) 2019 Appgramming. All rights reserved.
     https://www.appgramming.com
@@ -8,15 +7,54 @@
 <resources>
 
     <!-- ****************************************************************** -->
-    <!-- Base application theme                                             -->
+    <!-- App light theme                                                    -->
     <!-- ****************************************************************** -->
 
-    <style name="AppTheme" parent="android:Theme.Material">
-        <!--<item name="android:windowActionBarOverlay">true</item>-->
+    <style name="AppTheme.Light" parent="android:Theme.Material.Light">
+        <!--<item name="android:colorAccent">@color/colorAccent</item>-->
+    </style>
 
-        <!--<item name="android:colorPrimary">@color/colorPrimary</item>-->
-        <!--<item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <item name="android:colorAccent">@color/colorAccent</item>
+    <!-- ****************************************************************** -->
+    <!-- App white theme                                                    -->
+    <!-- ****************************************************************** -->
+
+    <style name="AppTheme.White" parent="android:Theme.Material.Light">
+        <item name="android:colorPrimary">@color/color_theme_white_primary</item>
+        <item name="android:colorPrimaryDark">@color/color_theme_white_primary_dark</item>
+        <item name="android:colorAccent">@color/color_theme_white_accent</item>
+        <item name="android:statusBarColor">@color/color_theme_white_status_bar</item>
+        <item name="android:navigationBarColor">@color/color_theme_white_navigation_bar</item>
+        <!--<item name="android:windowLightNavigationBar">true</item>-->
+        <!--<item name="android:windowLightStatusBar">true</item>-->
+        <item name="android:actionBarPopupTheme">@style/AppTheme.White.ActionBarPopupTheme</item>
+    </style>
+
+    <style name="AppTheme.White.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Light">
+        <item name="android:background">@color/color_theme_white_primary</item>
+    </style>
+
+    <!-- ****************************************************************** -->
+    <!-- App dark theme                                                     -->
+    <!-- ****************************************************************** -->
+
+    <style name="AppTheme.Dark" parent="android:Theme.Material">
+        <!--<item name="android:colorAccent">@color/colorAccent</item>-->
+    </style>
+
+    <!-- ****************************************************************** -->
+    <!-- App black theme                                                    -->
+    <!-- ****************************************************************** -->
+
+    <style name="AppTheme.Black" parent="android:Theme.Material">
+        <item name="android:colorPrimary">@color/color_theme_black_primary</item>
+        <item name="android:colorPrimaryDark">@color/color_theme_black_primary_dark</item>
+        <item name="android:colorAccent">@color/color_theme_black_accent</item>
+        <item name="android:navigationBarColor">@color/color_theme_black_navigation_bar</item>
+        <item name="android:actionBarPopupTheme">@style/AppTheme.Black.ActionBarPopupTheme</item>
+    </style>
+
+    <style name="AppTheme.Black.ActionBarPopupTheme" parent="android:ThemeOverlay.Material.Dark">
+        <item name="android:background">@color/color_theme_black_primary</item>
     </style>
 
     <!-- ****************************************************************** -->
@@ -24,7 +62,6 @@
     <!-- ****************************************************************** -->
 
     <!-- Settings theme -->
-    <style name="AppTheme.SettingsTheme" parent="android:Theme.Material.Settings">
-    </style>
+    <style name="AppTheme.SettingsTheme" parent="android:Theme.Material.Settings"></style>
 
 </resources>

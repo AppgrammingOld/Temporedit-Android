@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
     Temporedit
     Copyright (C) 2019 Appgramming. All rights reserved.
     https://www.appgramming.com
@@ -52,6 +51,14 @@
         <item>1.15</item>
         <item>1.5</item>
         <item>2.0</item>
+    </string-array>
+
+    <!-- Colors -> App theme preference entries and values -->
+    <string-array name="pref_theme_evalues">
+        <item>@string/pref_theme_evalue_light</item>
+        <item>@string/pref_theme_evalue_white</item>
+        <item>@string/pref_theme_evalue_dark</item>
+        <item>@string/pref_theme_evalue_black</item>
     </string-array>
 
 </resources>
